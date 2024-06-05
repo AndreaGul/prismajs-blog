@@ -66,10 +66,32 @@ const deletePostsById = (id, callbackf)=>{
     .catch(err =>console.error(err));
 }
 
- module.export = {
+const publishedPosts = (callbackf) =>{
+    //leggiamo posts
+    prisma.post.findMany({
+        where:{ published: true},
+        include: {
+            category:{
+                select:{
+                    name:true
+                }
+            },
+            tags: {
+                select: {
+                    name:true
+                }
+            }
+        },
+    })
+    .then( posts => callbackf(posts))
+    .catch(err => console.error(err));
+}
+
+ module.exports = {
     createPost,
     readPostsBySlug,
     readPosts,
     updatePostById,
-    deletePostsById
+    deletePostsById,
+    publishedPosts
  }
