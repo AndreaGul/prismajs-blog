@@ -1,3 +1,3 @@
  const {createPost,readPostsBySlug,
-    readPosts} =require('./utils/crud-post');
+    readPosts,updatePostById,deletePostsById} = require('./utils/crud-post');
 

@@ -59,11 +59,17 @@ const updatePostById=(id,data,callbackf)=>{
 
 }
 
-
+const deletePostsById = (id, callbackf)=>{
+    // elemina una pizza
+    prisma.post.delete({where: {id}})
+    .then(post => callbackf(post))
+    .catch(err =>console.error(err));
+}
 
  module.export = {
     createPost,
     readPostsBySlug,
     readPosts,
     updatePostById,
+    deletePostsById
  }
