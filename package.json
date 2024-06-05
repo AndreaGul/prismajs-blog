@@ -4,7 +4,7 @@
   "description": "Esercizio\r Create un nuovo progetto Node.js (senza Express) ed installate la Prisma CLI e il Prisma Client. Successivamente definite i modelli Post, Category e Tag nel file schema.prisma Il Post deve contenere le seguenti proprietà:\r title\r slug (deve essere univoco)\r image (non obbligatoria)\r content\r published (boolean)\r createdAt\r updatedAt\r Mentre per Category e Tag è sufficiente la proprietà name.\r Le relazioni fra i modelli:\r Category (one-to-many): Ogni Post deve avere una categoria associata, e una categoria può avere più Post associati.\r Tag (many-to-many): Ogni Post può avere uno o più tag associati, e ogni Tag può avere uno o più Post associati.\r Dopo aver definito i modelli, aggiungete le funzioni per creare una Categoria e un Tag ed implementate tutte le operazioni CRUD per il modello Post, ovvero:\r Una funzione che consente di creare un Post.\r Una funzione che permette di leggere un Post usando lo slug.\r Una funzione che restituisce l'elenco di tutti i Post.\r Una funzione che consente di modificare un Post.\r Una funzione che elimina un Post.\r BONUS:\r Crea una funzione che restituisca solo i Post pubblicati.\r Crea una funzione che restituisca solo i Post che contengono una determinata stringa nel contenuto.",
   "main": "index.js",
   "scripts": {
-    "migrate":"prisma migrate dev",
+    "migrate":"prisma migrate dev --name",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node app.js"
   },

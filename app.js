@@ -1,2 +1,3 @@
- const {createPost} =require('./utils/crud-post');
+ const {createPost,readPostsBySlug,
+    readPosts} =require('./utils/crud-post');
 
