@@ -20,7 +20,7 @@ const readPostsBySlug = (slug,callbackf) =>{
                     name:true
                 }
             },
-            tag: {
+            tags: {
                 select: {
                     name:true
                 }
@@ -40,7 +40,7 @@ const readPosts = (callbackf) =>{
                     name:true
                 }
             },
-            tag: {
+            tags: {
                 select: {
                     name:true
                 }
@@ -51,9 +51,19 @@ const readPosts = (callbackf) =>{
     .catch(err => console.error(err));
 }
 
+const updatePostById=(id,data,callbackf)=>{
+    //aggiorna un post
+    prisma.post.update({where:{id}, data})
+    .then( post => callbackf(post))
+    .catch(err=> console.error(err));
+
+}
+
+
 
  module.export = {
     createPost,
     readPostsBySlug,
     readPosts,
+    updatePostById,
  }
